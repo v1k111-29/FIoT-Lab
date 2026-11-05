@@ -201,3 +201,6 @@ The ESP8266 joins the Wi-Fi network as a station under the control of the STM32,
 - **Project folder:** [`TASK_10C_Web_Server`](TASK_10C_Web_Server/)
 - **Board:** NUCLEO-F401RE, USART1 PA9/PA10 to Wemos, USART6 PC6/PC7 to PuTTY
 - **Logic:** Joins Wi-Fi, starts a TCP server on port 80 (AT+CIPMUX=1, AT+CIPSERVER=1,80). On every +IPD request it sends a small HTML page with AT+CIPSEND and closes the connection.
+- **Circuit Diagram:**
+
+![Circuit Diagram](TASK_10C_Web_Server/circuit.png)

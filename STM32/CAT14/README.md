@@ -22,7 +22,6 @@
 
 ![Circuit Diagram](circuit.png)
 
-> TODO: add `circuit.png` to this folder.
 
 ### 2. Core Logic / Pseudocode / Code Base
 

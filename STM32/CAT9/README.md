@@ -123,3 +123,6 @@ Typing `LED ON`, `LED OFF` or `LED TOGGLE` in PuTTY controls the onboard LED. Co
 - **Project folder:** [`UART`](UART/)
 - **Board:** Blue Pill STM32F103C8T6, USART2 PA2/PA3 at 115200, LED PC13
 - **Logic:** Sends 'A' at start and echoes every character. Typing LED ON, LED OFF or LED TOGGLE and pressing Enter controls the LED.
+- **Circuit Diagram:**
+
+![Circuit Diagram](UART/circuit.png)

@@ -139,3 +139,6 @@ The STM32 distinguishes short and long presses of B1: a short press toggles LD2 
 - **Project folder:** [`Uart_WIFI`](Uart_WIFI/)
 - **Board:** Blue Pill STM32F103C8T6, USART1 PA9/PA10 to Wemos, USART2 PA2/PA3 to PuTTY
 - **Logic:** Sends AT, AT+GMR, AT+CWMODE=1, AT+CWJAP and AT+CIFSR and prints each reply on PuTTY. After that, any AT command typed in PuTTY is sent to the Wemos.
+- **Circuit Diagram:**
+
+![Circuit Diagram](Uart_WIFI/circuit.png)

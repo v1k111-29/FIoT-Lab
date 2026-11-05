@@ -154,3 +154,6 @@ A short press toggles the LED and a long press of 1 second or more starts or sto
 - **Project folder:** [`Led_Toggle`](Led_Toggle/)
 - **Board:** Blue Pill STM32F103C8T6, LED PC13 (active-low), switch PA9 (pull-up)
 - **Logic:** Short press (< 1 s) toggles the LED. Long press (>= 1 s) starts or stops 200 ms blinking. 30 ms debounce.
+- **Circuit Diagram:**
+
+![Circuit Diagram](Led_Toggle/circuit.png)

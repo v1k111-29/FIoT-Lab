@@ -122,3 +122,6 @@ Opening `http://<IP Address>/` in a browser on the same network shows the temper
 - **Project folder:** [`TASK12_BME280`](TASK12_BME280/)
 - **Board:** NUCLEO-F401RE, BME280 on I2C1 PB6/PB7, USART1 PA9/PA10 to PuTTY
 - **Logic:** Initialises the BME280 with the Bosch API (1x oversampling, normal mode) and prints temperature, humidity and pressure every 2 s.
+- **Circuit Diagram:**
+
+![Circuit Diagram](TASK12_BME280/circuit.png)
