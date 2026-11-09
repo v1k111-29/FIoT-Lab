@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 13
 
-**DATE:** DD/MM/YYYY
+**DATE:** 27/10/2026
 
 **NAME OF EXP:** BME280 Sensor Interfacing Using I²C and (MQTT) using Custom Built ESP8266 API
 

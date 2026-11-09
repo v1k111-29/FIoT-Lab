@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 5
 
-**DATE:** DD/MM/YYYY
+**DATE:** 10/08/2026
 
 **NAME OF EXP:** Hardware Timer and Interrupt-Based Timing for LED Fading, Pulse Generation, and Stepper Motor Control
 

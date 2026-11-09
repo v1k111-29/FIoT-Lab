@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 2
 
-**DATE:** DD/MM/YYYY
+**DATE:** 20/07/2026
 
 **NAME OF EXP:** 8051 Tool Chain Setup – Development Board – AT89S52
 

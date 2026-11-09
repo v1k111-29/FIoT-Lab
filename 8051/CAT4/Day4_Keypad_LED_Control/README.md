@@ -2,9 +2,9 @@
 
 **EXP:** CAT 4 (Day 4)
 
-**DATE:** DD/MM/YYYY
+**DATE:** 03/08/2026
 
-**NAME OF EXP:** Keypad-based LED control
+**NAME OF EXP:** Human-Machine Interface using Matrix Keypad, LEDs, and Seven-Segment Display
 
 **HARDWARE SETUP / PLATFORM:** AT89S52 development kit + Keil uVision (C51)
 

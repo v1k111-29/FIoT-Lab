@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 6
 
-**DATE:** DD/MM/YYYY
+**DATE:** 17/08/2026
 
 **NAME OF EXP:** UART Driver and Serial Debugging
 

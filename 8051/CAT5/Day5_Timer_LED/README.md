@@ -2,9 +2,9 @@
 
 **EXP:** CAT 5 (Day 5)
 
-**DATE:** DD/MM/YYYY
+**DATE:** 10/08/2026
 
-**NAME OF EXP:** Timer-based LED control
+**NAME OF EXP:** Hardware Timer and Interrupt-Based Timing for LED Fading, Pulse Generation, and Stepper Motor Control
 
 **HARDWARE SETUP / PLATFORM:** AT89S52 development kit + Keil uVision (C51)
 

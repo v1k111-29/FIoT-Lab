@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 10
 
-**DATE:** DD/MM/YYYY
+**DATE:** 12/10/2026
 
 **NAME OF EXP:** STM32–Wemos Wi-Fi Modem Interface Using AT Commands
 

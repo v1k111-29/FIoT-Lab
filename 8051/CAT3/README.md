@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 3
 
-**DATE:** DD/MM/YYYY
+**DATE:** 27/07/2026
 
 **NAME OF EXP:** Timer-Based LED Pattern Generator and Button Interrupt Controller
 
