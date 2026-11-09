@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 7
 
-**DATE:** DD/MM/YYYY
+**DATE:** 24/08/2026
 
 **NAME OF EXP:** 16×2 LCD Driver Development and Dynamic Display Control
 

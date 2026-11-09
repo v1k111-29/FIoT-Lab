@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 8
 
-**DATE:** DD/MM/YYYY
+**DATE:** 18/09/2026
 
 **NAME OF EXP:** STM32 GPIO Bring-Up and Switch-Controlled LED
 

@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 9
 
-**DATE:** DD/MM/YYYY
+**DATE:** 28/09/2026
 
 **NAME OF EXP:** STM32 UART Command Controlled LED
 

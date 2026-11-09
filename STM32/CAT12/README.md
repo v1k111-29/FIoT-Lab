@@ -2,7 +2,7 @@
 
 **EXP:** CONTINUOUS ASSESSMENT 12
 
-**DATE:** DD/MM/YYYY
+**DATE:** 23/10/2026
 
 **NAME OF EXP:** BME280 Sensor Interfacing Using I²C and Bosch Sensor API
 
