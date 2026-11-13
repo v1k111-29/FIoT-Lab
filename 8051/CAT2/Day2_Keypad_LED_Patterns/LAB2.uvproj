@@ -382,9 +382,9 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
-              <FileName>LAB2.C</FileName>
+              <FileName>LAB2.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\LAB2.C</FilePath>
+              <FilePath>.\LAB2.c</FilePath>
             </File>
           </Files>
         </Group>

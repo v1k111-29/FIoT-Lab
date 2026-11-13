@@ -21,7 +21,7 @@
 
 ### 2. Core Logic / Pseudocode / Code Base
 
-Source and project files are in this folder. See the `.C` file for the implementation.
+Source and project files are in this folder. See `LAB2.c` for the implementation. The built firmware is `Objects/LAB2.hex`.
 
 ### 3. INFERENCE
 
