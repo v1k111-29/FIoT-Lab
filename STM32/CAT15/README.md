@@ -1,6 +1,6 @@
 # EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 14 (Node-RED part)
+**EXP:** CONTINUOUS ASSESSMENT 15 (Project: Node-RED part of CAT14)
 
 **DATE:** 12/11/2026
 
@@ -47,7 +47,13 @@ Based only on the real BME280 humidity. Dry air dries the soil faster.
 3. Power the STM32 board running the CAT14 firmware.
 4. Open `http://localhost:1880/dashboard`. The Lab14 page opens first.
 
-### 4. OBSERVATION
+### 4. Dashboard Output
+
+![Node-RED Dashboard](dashboard.png)
+
+Screenshot taken on 14/11/2026. The board was not powered at that time, so the BME280 values come from mock MQTT messages in the same JSON format, published to `stm32/leela` near the earlier real readings. The Chennai values are live from OpenWeather.
+
+### 5. OBSERVATION
 
 | Quantity | BME280 (room) | Chennai (OpenWeather) | Difference |
 |---|---|---|---|
@@ -57,7 +63,7 @@ Based only on the real BME280 humidity. Dry air dries the soil faster.
 
 Watering output for this reading: **MORE WATER** (humidity 59.6 % is below 65 %).
 
-### 5. INFERENCE
+### 6. INFERENCE
 
 - Node-RED joins live sensor data (MQTT) and cloud data (HTTP API) in one function node and shows them side by side.
 - The room was cooler and drier than outdoor Chennai, while pressure matched closely.

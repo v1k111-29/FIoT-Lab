@@ -31,14 +31,14 @@
 4. Check the BME280 with `HAL_I2C_IsDeviceReady`, then configure it through the Bosch API.
 5. Loop every 2 s: read temperature, pressure and humidity, format JSON and call `MQTT_publishTopic("stm32/leela", ...)` at QoS0. If a read fails, publish `{"status":"error","code":N}` instead of old values.
 
-Source: `Core/Src/main.c`, `Core/Src/ESPLib.c`, `Core/Src/bme280.c`. Firmware: `Task14.hex`.
+Source: `Core/Src/main.c`, `Core/Src/ESPLib.c`, `Core/Src/bme280.c`. Keil project: `MDK-ARM/Task14.uvprojx`. Firmware: `MDK-ARM/Task14/Task14.hex`.
 
 6. Node-RED Flow 2 receives the readings on `stm32/leela`. Flow 1 fetches Chennai weather from OpenWeather every 10 min and passes it to Flow 2 through a link node.
 7. One function node in Flow 2 combines both sources and feeds the dashboard at `http://localhost:1880/dashboard/lab14`:
    - a table with BME280, Chennai and difference (BME280 minus Chennai) for temperature, humidity and pressure;
    - line charts for the last 1 hour and the last 12 hours, with one line per source.
 
-Node-RED files (dashboard installer and flow export) are in [`../CAT`](../CAT/README.md).
+Node-RED files (dashboard installer and flow export) are in [`../CAT15`](../CAT15/README.md).
 
 ### 3. OBSERVATION
 

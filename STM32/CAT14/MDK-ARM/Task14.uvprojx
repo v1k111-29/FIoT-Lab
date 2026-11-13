@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F401xE</Define>
               <Undefine></Undefine>
-              <IncludePath>./Core/Inc;./Drivers/STM32F4xx_HAL_Driver/Inc;./Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;./Drivers/CMSIS/Device/ST/STM32F4xx/Include;./Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -397,42 +397,42 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Core/Src/main.c</FilePath>
+              <FilePath>../Core/Src/main.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Core/Src/stm32f4xx_it.c</FilePath>
+              <FilePath>../Core/Src/stm32f4xx_it.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Core/Src/stm32f4xx_hal_msp.c</FilePath>
+              <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
             </File>
             <File>
               <FileName>ESPLib.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Core\Src\ESPLib.c</FilePath>
+              <FilePath>..\Core\Src\ESPLib.c</FilePath>
             </File>
             <File>
               <FileName>ESPLib.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Core\Inc\ESPLib.h</FilePath>
+              <FilePath>..\Core\Inc\ESPLib.h</FilePath>
             </File>
             <File>
               <FileName>bme280.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Core\Src\bme280.c</FilePath>
+              <FilePath>..\Core\Src\bme280.c</FilePath>
             </File>
             <File>
               <FileName>bme280.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Core\Inc\bme280.h</FilePath>
+              <FilePath>..\Core\Inc\bme280.h</FilePath>
             </File>
             <File>
               <FileName>bme280_defs.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Core\Inc\bme280_defs.h</FilePath>
+              <FilePath>..\Core\Inc\bme280_defs.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -442,82 +442,82 @@
             <File>
               <FileName>stm32f4xx_hal_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_i2c_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_rcc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_rcc_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_flash_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_flash_ramfunc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_dma_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_pwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_pwr_ex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c</FilePath>
+              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -527,7 +527,7 @@
             <File>
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>./Core/Src/system_stm32f4xx.c</FilePath>
+              <FilePath>../Core/Src/system_stm32f4xx.c</FilePath>
             </File>
           </Files>
         </Group>
