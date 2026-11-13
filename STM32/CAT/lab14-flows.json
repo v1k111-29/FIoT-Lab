@@ -1,0 +1,1238 @@
+[
+  {
+    "id": "7893c5f92ffa2983",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "ad2085d72e1ae047",
+    "type": "tab",
+    "label": "Flow 2",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "1bf05a4b0849ba96",
+    "type": "inject",
+    "z": "7893c5f92ffa2983",
+    "name": "inject1",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "Hi Ahmed Zayd Pro",
+    "payloadType": "str",
+    "x": 130,
+    "y": 260,
+    "wires": [
+      [
+        "934fddfaa28e6a52"
+      ]
+    ]
+  },
+  {
+    "id": "3e8625005cc7a8b5",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 1",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 620,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "934fddfaa28e6a52",
+    "type": "function",
+    "z": "7893c5f92ffa2983",
+    "name": "function 1",
+    "func": "msg.payload = msg.payload.replace(\"Pro\", \"Ultra Pro Max\");\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 140,
+    "wires": [
+      [
+        "3e8625005cc7a8b5"
+      ]
+    ]
+  },
+  {
+    "id": "06df65e09ccc1e2a",
+    "type": "inject",
+    "z": "7893c5f92ffa2983",
+    "name": "inject2",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 110,
+    "y": 500,
+    "wires": [
+      [
+        "78ea8984f1eab47e"
+      ]
+    ]
+  },
+  {
+    "id": "78ea8984f1eab47e",
+    "type": "http request",
+    "z": "7893c5f92ffa2983",
+    "name": "",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "https://api.openweathermap.org/data/2.5/weather?q=Chennai&appid=6342ade74c0f0fc8c97297a29f1a1977&units=metric",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 270,
+    "y": 480,
+    "wires": [
+      [
+        "94e3b3bbee0bc3cc",
+        "lab14_weather_out"
+      ]
+    ]
+  },
+  {
+    "id": "e84fa4c2fa84b0e1",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 2",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 760,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "94e3b3bbee0bc3cc",
+    "type": "function",
+    "z": "7893c5f92ffa2983",
+    "name": "Json Split",
+    "func": "const temp = msg.payload.main.temp;\nconst humidity = msg.payload.main.humidity;\nconst description = msg.payload.weather[0].description;\nconst windSpeed = msg.payload.wind.speed;\nconst city = msg.payload.name;\n\n// Create separate messages for each value\nreturn [\n    { payload: city, topic: \"city\" },\n    { payload: description, topic: \"description\" },\n    { payload: temp, topic: \"temperature\" },\n    { payload: humidity, topic: \"humidity\" },\n    { payload: windSpeed, topic: \"wind\" },]",
+    "outputs": 5,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 440,
+    "y": 560,
+    "wires": [
+      [
+        "e84fa4c2fa84b0e1",
+        "af3665391346a93a"
+      ],
+      [
+        "830027bf6a1047d7",
+        "7c9227e8640833be"
+      ],
+      [
+        "92a03b5a48c52bd6",
+        "faecf2df19d2d91d"
+      ],
+      [
+        "1de6b22aef8fa0d4",
+        "eb1d6c7139f01d38"
+      ],
+      [
+        "f98d0d7822a10983"
+      ]
+    ]
+  },
+  {
+    "id": "830027bf6a1047d7",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 3",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 820,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "92a03b5a48c52bd6",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 4",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 800,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "1de6b22aef8fa0d4",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 5",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 760,
+    "y": 700,
+    "wires": []
+  },
+  {
+    "id": "f98d0d7822a10983",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 6",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 720,
+    "y": 840,
+    "wires": []
+  },
+  {
+    "id": "af3665391346a93a",
+    "type": "ui-text",
+    "z": "7893c5f92ffa2983",
+    "group": "0688409456d45fc4",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "name": "",
+    "label": "CIty",
+    "format": "{{msg.payload}}",
+    "layout": "row-center",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": false,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 650,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "7c9227e8640833be",
+    "type": "ui-text",
+    "z": "7893c5f92ffa2983",
+    "group": "0688409456d45fc4",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "name": "Cloud",
+    "label": "Cloud",
+    "format": "{{msg.payload}}",
+    "layout": "row-spread",
+    "style": false,
+    "font": "",
+    "fontSize": 16,
+    "color": "#717171",
+    "wrapText": false,
+    "className": "",
+    "value": "payload",
+    "valueType": "msg",
+    "x": 830,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "eb1d6c7139f01d38",
+    "type": "ui-gauge",
+    "z": "7893c5f92ffa2983",
+    "name": "Humidity",
+    "group": "0688409456d45fc4",
+    "order": 2,
+    "value": "payload",
+    "valueType": "msg",
+    "width": 3,
+    "height": 3,
+    "gtype": "gauge-half",
+    "gstyle": "needle",
+    "title": "gauge",
+    "alwaysShowTitle": false,
+    "floatingTitlePosition": "top-left",
+    "units": "units",
+    "icon": "",
+    "prefix": "",
+    "suffix": "",
+    "segments": [
+      {
+        "from": "0",
+        "color": "#5cd65c",
+        "text": "",
+        "textType": "label"
+      },
+      {
+        "from": "45",
+        "color": "#ffc800",
+        "text": "",
+        "textType": "label"
+      },
+      {
+        "from": "69",
+        "color": "#ea5353",
+        "text": "",
+        "textType": "label"
+      }
+    ],
+    "min": 0,
+    "max": "100",
+    "sizeThickness": 16,
+    "sizeGap": 4,
+    "sizeKeyThickness": 8,
+    "styleRounded": true,
+    "styleGlow": false,
+    "className": "",
+    "x": 780,
+    "y": 740,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "faecf2df19d2d91d",
+    "type": "ui-gauge",
+    "z": "7893c5f92ffa2983",
+    "name": "Temperature",
+    "group": "0688409456d45fc4",
+    "order": 1,
+    "value": "payload",
+    "valueType": "msg",
+    "width": 3,
+    "height": 3,
+    "gtype": "gauge-half",
+    "gstyle": "needle",
+    "title": "gauge",
+    "alwaysShowTitle": false,
+    "floatingTitlePosition": "top-left",
+    "units": " C",
+    "icon": "",
+    "prefix": "",
+    "suffix": "",
+    "segments": [
+      {
+        "from": "0",
+        "color": "#5cd65c",
+        "text": "",
+        "textType": "label"
+      },
+      {
+        "from": "20",
+        "color": "#ffc800",
+        "text": "",
+        "textType": "label"
+      },
+      {
+        "from": "35",
+        "color": "#ea5353",
+        "text": "",
+        "textType": "label"
+      }
+    ],
+    "min": 0,
+    "max": "70",
+    "sizeThickness": 16,
+    "sizeGap": 4,
+    "sizeKeyThickness": 8,
+    "styleRounded": true,
+    "styleGlow": false,
+    "className": "",
+    "x": 810,
+    "y": 580,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "153c1c270a74421b",
+    "type": "debug",
+    "z": "7893c5f92ffa2983",
+    "name": "debug 10",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 520,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "9e533464425ece2e",
+    "type": "mqtt in",
+    "z": "ad2085d72e1ae047",
+    "name": "",
+    "topic": "stm32/leela",
+    "qos": "0",
+    "datatype": "auto-detect",
+    "broker": "4b7ed9c9fd6858ba",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 230,
+    "y": 260,
+    "wires": [
+      [
+        "40414d73b1ccb5a2",
+        "lab14_combine"
+      ]
+    ]
+  },
+  {
+    "id": "40414d73b1ccb5a2",
+    "type": "debug",
+    "z": "ad2085d72e1ae047",
+    "name": "debug 7",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 660,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "8cf7180315b3613a",
+    "type": "inject",
+    "z": "ad2085d72e1ae047",
+    "name": "inject",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 190,
+    "y": 380,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_weather_out",
+    "type": "link out",
+    "z": "7893c5f92ffa2983",
+    "name": "Weather to Lab14",
+    "mode": "link",
+    "links": [
+      "lab14_weather_in"
+    ],
+    "x": 430,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "lab14_poll",
+    "type": "inject",
+    "z": "7893c5f92ffa2983",
+    "name": "Refresh Chennai every 10 min",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "600",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 2,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 110,
+    "y": 600,
+    "wires": [
+      [
+        "78ea8984f1eab47e"
+      ]
+    ]
+  },
+  {
+    "id": "lab14_weather_in",
+    "type": "link in",
+    "z": "ad2085d72e1ae047",
+    "name": "Weather from Flow 1",
+    "links": [
+      "lab14_weather_out"
+    ],
+    "x": 230,
+    "y": 460,
+    "wires": [
+      [
+        "lab14_combine"
+      ]
+    ]
+  },
+  {
+    "id": "lab14_mqtt_gk",
+    "type": "mqtt in",
+    "z": "ad2085d72e1ae047",
+    "name": "Friend BME280 (stm32/gk)",
+    "topic": "stm32/gk",
+    "qos": "0",
+    "datatype": "utf8",
+    "broker": "4b7ed9c9fd6858ba",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 230,
+    "y": 320,
+    "wires": [
+      [
+        "lab14_combine",
+        "lab14_gk_debug"
+      ]
+    ]
+  },
+  {
+    "id": "lab14_gk_debug",
+    "type": "debug",
+    "z": "ad2085d72e1ae047",
+    "name": "debug stm32/gk",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 470,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "lab14_tick",
+    "type": "inject",
+    "z": "ad2085d72e1ae047",
+    "name": "Update ages 30 s",
+    "props": [
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "topic": "tick",
+    "repeat": "30",
+    "once": true,
+    "onceDelay": 1,
+    "x": 230,
+    "y": 520,
+    "wires": [
+      [
+        "lab14_combine"
+      ]
+    ]
+  },
+  {
+    "id": "lab14_combine",
+    "type": "function",
+    "z": "ad2085d72e1ae047",
+    "name": "Combine BME280 + Chennai",
+    "func": "return (function combine(msg, context) {\n  const now = Date.now();\n  let sensor = context.get(\"sensor\"), weather = context.get(\"weather\");\n  let fresh = null; // which source produced new chart points\n  let p = msg.payload;\n\n  // Plant watering rule (humidity from BME280): dry air dries soil faster, so it needs more water.\n  const waterFor = h => {\n    if (h > 70) return { level: \"NO WATER\", reason: \"Humidity \" + h + \" % is above 70 %: air is moist\" };\n    if (h >= 65) return { level: \"LITTLE WATER\", reason: \"Humidity \" + h + \" % is between 65 and 70 %\" };\n    return { level: \"MORE WATER\", reason: \"Humidity \" + h + \" % is below 65 %: air is dry\" };\n  };\n\n  if (msg.topic === \"stm32/leela\" || msg.topic === \"stm32/gk\") {\n    if (msg.retain) return null; // ignore old retained message from broker\n    if (Buffer.isBuffer(p)) p = p.toString();\n    if (msg.topic === \"stm32/gk\") {\n      // Friend's board sends text: \"Temperature: 24.17 C, Pressure: 1012.53 hPa, Humidity: 58.04 %\"\n      const m = String(p).match(/Temperature:\\s*(-?[\\d.]+).*Pressure:\\s*([\\d.]+).*Humidity:\\s*([\\d.]+)/);\n      if (!m) return null;\n      p = { status: \"success\", temperature: +m[1], pressure: +m[2], humidity: +m[3] };\n    }\n    if (typeof p === \"string\") { try { p = JSON.parse(p); } catch (e) { return null; } } // greeting text\n    if (!p || p.status !== \"success\" || ![p.temperature, p.humidity, p.pressure].every(Number.isFinite)) return null;\n    sensor = { t: p.temperature, h: p.humidity, p: p.pressure, at: now, from: msg.topic };\n    context.set(\"sensor\", sensor);\n    // BME280 publishes every 2 s; plot one point per minute to keep 12 h charts light.\n    if (now - (context.get(\"lastPlot\") || 0) >= 60000) { context.set(\"lastPlot\", now); fresh = \"sensor\"; }\n  } else if (msg.statusCode !== undefined) {\n    const m = p && p.main;\n    if (Number(msg.statusCode) === 200 && m && [m.temp, m.humidity, m.pressure].every(Number.isFinite)) {\n      weather = { t: m.temp, h: m.humidity, p: m.pressure, obs: p.dt * 1000, at: now };\n      context.set(\"weather\", weather);\n      context.set(\"error\", \"\");\n      fresh = \"weather\";\n    } else {\n      context.set(\"error\", \"Weather request failed (HTTP \" + msg.statusCode + \"). Check Flow 1.\");\n    }\n  }\n\n  const age = t => { const s = Math.round((now - t) / 1000); return s < 120 ? s + \" s ago\" : Math.round(s / 60) + \" min ago\"; };\n  const fmt = (v, u) => v == null ? \"—\" : (Math.round(v * 10) / 10) + u;\n  const diff = (a, b, u) => (a == null || b == null) ? \"—\" : ((a - b) >= 0 ? \"+\" : \"\") + (Math.round((a - b) * 10) / 10) + u;\n  const s = sensor || {}, w = weather || {};\n  const summary = { payload: {\n    sensor: sensor ? \"Received \" + age(sensor.at) + \" from \" + sensor.from + (now - sensor.at > 120000 ? \" (no new data)\" : \"\") : \"Waiting for MQTT data on stm32/leela or stm32/gk\",\n    weather: weather ? \"Fetched \" + age(weather.at) + \", observed \" + age(weather.obs) : \"Waiting for Flow 1 weather\",\n    error: context.get(\"error\") || \"\",\n    water: sensor ? waterFor(Math.round(s.h * 10) / 10) : null,\n    rows: [\n      [\"Temperature\", fmt(s.t, \" °C\"), fmt(w.t, \" °C\"), diff(s.t, w.t, \" °C\")],\n      [\"Humidity\", fmt(s.h, \" %\"), fmt(w.h, \" %\"), diff(s.h, w.h, \" %\")],\n      [\"Pressure\", fmt(s.p, \" hPa\"), fmt(w.p, \" hPa\"), diff(s.p, w.p, \" hPa\")]\n    ]\n  } };\n\n  if (!fresh) return [summary, null, null, null];\n  // Each chart gets both series; the latest known value of the other source is repeated so lines stay aligned.\n  const pts = k => [sensor && { topic: \"BME280\", payload: sensor[k] }, weather && { topic: \"Chennai\", payload: weather[k] }].filter(Boolean);\n  return [summary, pts(\"t\"), pts(\"h\"), pts(\"p\")];\n})(msg, context);",
+    "outputs": 4,
+    "outputLabels": [
+      "summary",
+      "temperature",
+      "humidity",
+      "pressure"
+    ],
+    "x": 520,
+    "y": 380,
+    "wires": [
+      [
+        "lab14_summary"
+      ],
+      [
+        "lab14_t1",
+        "lab14_t12"
+      ],
+      [
+        "lab14_h1",
+        "lab14_h12"
+      ],
+      [
+        "lab14_p1",
+        "lab14_p12"
+      ]
+    ]
+  },
+  {
+    "id": "lab14_summary",
+    "type": "ui-template",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_now",
+    "name": "Comparison table",
+    "order": 1,
+    "width": 12,
+    "height": 0,
+    "templateScope": "local",
+    "resendOnRefresh": true,
+    "passthru": false,
+    "storeOutMessages": true,
+    "format": "<template><div class=\"l14\">\n<p><b>BME280:</b> {{msg.payload?.sensor}}<br><b>Chennai:</b> {{msg.payload?.weather}}</p>\n<p v-if=\"msg.payload?.error\" class=\"err\">{{msg.payload.error}}</p>\n<table><thead><tr><th></th><th>BME280</th><th>Chennai</th><th>Difference</th></tr></thead>\n<tbody><tr v-for=\"r in msg.payload?.rows || []\" :key=\"r[0]\"><th>{{r[0]}}</th><td>{{r[1]}}</td><td>{{r[2]}}</td><td>{{r[3]}}</td></tr></tbody></table>\n<p class=\"note\">Difference = BME280 minus Chennai. Chennai pressure is sea-level pressure from OpenWeather.</p>\n<div class=\"fan\"><b>Plant watering (from BME280 humidity):</b>\n<span v-if=\"msg.payload?.water\"> <span class=\"spd\">{{msg.payload.water.level}}</span>: {{msg.payload.water.reason}}</span>\n<span v-else> waiting for sensor data</span></div>\n</div></template>\n<style>.l14 .fan{margin-top:12px;padding:10px;border:1px solid #ccc}.l14 .fan.test{border-style:dashed;color:#555}.l14 .spd{font-weight:bold;font-size:18px}\n.l14 table{width:100%;border-collapse:collapse}.l14 th,.l14 td{text-align:left;padding:8px;border-bottom:1px solid #ddd}\n.l14 .note{font-size:12px;color:#777}.l14 .err{color:#b00}</style>",
+    "x": 800,
+    "y": 300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_t1",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_1h",
+    "name": "Temperature 1h",
+    "label": "Temperature (°C)",
+    "order": 1,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "°C",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 1,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 360,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_h1",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_1h",
+    "name": "Humidity 1h",
+    "label": "Humidity (%)",
+    "order": 2,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "%",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 1,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 420,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_p1",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_1h",
+    "name": "Pressure 1h",
+    "label": "Pressure (hPa)",
+    "order": 3,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "hPa",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 1,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 480,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_t12",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_12h",
+    "name": "Temperature 12h",
+    "label": "Temperature (°C)",
+    "order": 1,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "°C",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 12,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 540,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_h12",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_12h",
+    "name": "Humidity 12h",
+    "label": "Humidity (%)",
+    "order": 2,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "%",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 12,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 600,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "lab14_p12",
+    "type": "ui-chart",
+    "z": "ad2085d72e1ae047",
+    "group": "lab14_g_12h",
+    "name": "Pressure 12h",
+    "label": "Pressure (hPa)",
+    "order": 3,
+    "chartType": "line",
+    "category": "topic",
+    "categoryType": "msg",
+    "xAxisLabel": "",
+    "xAxisProperty": "",
+    "xAxisPropertyType": "timestamp",
+    "xAxisType": "time",
+    "xAxisFormat": "",
+    "xAxisFormatType": "auto",
+    "xmin": "",
+    "xmax": "",
+    "yAxisLabel": "hPa",
+    "yAxisProperty": "payload",
+    "yAxisPropertyType": "msg",
+    "ymin": "",
+    "ymax": "",
+    "bins": 10,
+    "action": "append",
+    "stackSeries": false,
+    "pointShape": "circle",
+    "pointRadius": 2,
+    "showLegend": true,
+    "removeOlder": 12,
+    "removeOlderUnit": "3600",
+    "removeOlderPoints": "",
+    "colors": [
+      "#333333",
+      "#1f77b4",
+      "#999999",
+      "#bbbbbb",
+      "#cccccc",
+      "#dddddd",
+      "#eeeeee",
+      "#aaaaaa",
+      "#888888"
+    ],
+    "textColor": [
+      "#666666"
+    ],
+    "textColorDefault": true,
+    "gridColor": [
+      "#e5e5e5"
+    ],
+    "gridColorDefault": true,
+    "width": 4,
+    "height": 6,
+    "className": "",
+    "interpolation": "linear",
+    "x": 820,
+    "y": 660,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "e2d06a8735a359ac",
+    "type": "ui-base",
+    "name": "My Dashboard",
+    "path": "/dashboard",
+    "appIcon": "",
+    "includeClientData": true,
+    "acceptsClientConfig": [
+      "ui-notification",
+      "ui-control"
+    ],
+    "showPathInSidebar": false,
+    "headerContent": "page",
+    "navigationStyle": "default",
+    "titleBarStyle": "default",
+    "showReconnectNotification": true,
+    "notificationDisplayTime": 1,
+    "showDisconnectNotification": true,
+    "allowInstall": false
+  },
+  {
+    "id": "a55634f86f57f754",
+    "type": "ui-theme",
+    "name": "Default Theme",
+    "colors": {
+      "surface": "#fcfcfd",
+      "primary": "#0d74ce",
+      "bgPage": "#f9f9fb",
+      "groupBg": "#ffffff",
+      "groupOutline": "#d9d9e0"
+    },
+    "sizes": {
+      "density": "default",
+      "pagePadding": "12px",
+      "groupGap": "12px",
+      "groupBorderRadius": "4px",
+      "widgetGap": "12px"
+    }
+  },
+  {
+    "id": "c6040a73c538f5ff",
+    "type": "ui-page",
+    "name": "Page 1",
+    "ui": "e2d06a8735a359ac",
+    "path": "/page1",
+    "icon": "home",
+    "layout": "grid",
+    "theme": "a55634f86f57f754",
+    "breakpoints": [
+      {
+        "name": "Default",
+        "px": 0,
+        "cols": 3
+      },
+      {
+        "name": "Tablet",
+        "px": 576,
+        "cols": 6
+      },
+      {
+        "name": "Small Desktop",
+        "px": 768,
+        "cols": 9
+      },
+      {
+        "name": "Desktop",
+        "px": 1024,
+        "cols": 12
+      }
+    ],
+    "tabs": [],
+    "order": 3,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
+  },
+  {
+    "id": "0688409456d45fc4",
+    "type": "ui-group",
+    "name": "Group 1",
+    "page": "c6040a73c538f5ff",
+    "width": 6,
+    "height": 1,
+    "order": 1,
+    "showTitle": true,
+    "className": "",
+    "visible": true,
+    "disabled": false,
+    "groupType": "default",
+    "tab": ""
+  },
+  {
+    "id": "4b7ed9c9fd6858ba",
+    "type": "mqtt-broker",
+    "name": "",
+    "broker": "broker.emqx.io",
+    "port": 1883,
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": 4,
+    "keepalive": 60,
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthRetain": "false",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closeRetain": "false",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willRetain": "false",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "lab14_page",
+    "type": "ui-page",
+    "name": "Lab14 BME280 vs Chennai",
+    "ui": "e2d06a8735a359ac",
+    "path": "/lab14",
+    "icon": "home",
+    "layout": "grid",
+    "theme": "a55634f86f57f754",
+    "breakpoints": [
+      {
+        "name": "Default",
+        "px": 0,
+        "cols": 3
+      },
+      {
+        "name": "Tablet",
+        "px": 576,
+        "cols": 6
+      },
+      {
+        "name": "Small Desktop",
+        "px": 768,
+        "cols": 9
+      },
+      {
+        "name": "Desktop",
+        "px": 1024,
+        "cols": 12
+      }
+    ],
+    "tabs": [],
+    "order": 1,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
+  },
+  {
+    "id": "lab14_g_now",
+    "type": "ui-group",
+    "name": "Latest values",
+    "page": "lab14_page",
+    "width": 12,
+    "height": 1,
+    "order": 1,
+    "showTitle": true,
+    "className": "",
+    "visible": true,
+    "disabled": false,
+    "groupType": "default",
+    "tab": ""
+  },
+  {
+    "id": "lab14_g_1h",
+    "type": "ui-group",
+    "name": "Last 1 hour",
+    "page": "lab14_page",
+    "width": 12,
+    "height": 1,
+    "order": 2,
+    "showTitle": true,
+    "className": "",
+    "visible": true,
+    "disabled": false,
+    "groupType": "default",
+    "tab": ""
+  },
+  {
+    "id": "lab14_g_12h",
+    "type": "ui-group",
+    "name": "Last 12 hours",
+    "page": "lab14_page",
+    "width": 12,
+    "height": 1,
+    "order": 3,
+    "showTitle": true,
+    "className": "",
+    "visible": true,
+    "disabled": false,
+    "groupType": "default",
+    "tab": ""
+  }
+]

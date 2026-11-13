@@ -163,7 +163,7 @@ int main(void)
   ESP8266_Init(StationMode, huart1);
 
   // 2. Connect to your local Wi-Fi network (Replace with your Router SSID and Password)
-  ESP8266_wifiConnect("YOUR_WIFI_SSID", "YOUR_WIFI_PASSWORD");
+  ESP8266_wifiConnect("SNUC", "snu12345");
 
   // 3. Connect to your MQTT Broker (Replace with your Broker's IP Address)
   // 1883 is the standard unencrypted MQTT port
@@ -197,7 +197,7 @@ if (HAL_I2C_IsDeviceReady(&hi2c1, dev_addr << 1, 3, 100) == HAL_OK)
     rslt = bme280_init(&dev);
 
     if (rslt == BME280_OK)
-    {
+    {	
         struct bme280_settings settings = {0};
 
         settings.osr_t = BME280_OVERSAMPLING_1X;
@@ -233,6 +233,7 @@ else
 
 	 MQTT_publishTopic("stm32/leela", "Hi friends ", QoS0);
 	 MQTT_publishTopic("stm32/leela", " I am Leelaa Goutham", QoS0);
+
 	 MQTT_publishTopic("stm32/leela", "But I have an another name , Gothic Baddie" , QoS0);
 
   /* USER CODE END 2 */
@@ -253,17 +254,22 @@ else
             temperature = comp_data.temperature;
             pressure = comp_data.pressure / 100.0;
             humidity = comp_data.humidity;
-        }
-				
-				// Prepare JSON data
+
+            // Prepare JSON data only from a fresh, successful reading
             snprintf(mqttMessage, sizeof(mqttMessage),
                 "{\"status\":\"success\",\"temperature\":%.2f,\"humidity\":%.2f,\"pressure\":%.2f}",
                 (double)temperature,
                 (double)humidity,
-                (double)pressure
-							);
-								
-				MQTT_publishTopic("stm32/leela", mqttMessage, QoS0);
+                (double)pressure);
+        }
+        else
+        {
+            // Read failed: report the BME280 error code instead of resending old values
+            snprintf(mqttMessage, sizeof(mqttMessage),
+                "{\"status\":\"error\",\"code\":%d}", (int)rslt);
+        }
+
+        MQTT_publishTopic("stm32/leela", mqttMessage, QoS0);
 
     }
 
