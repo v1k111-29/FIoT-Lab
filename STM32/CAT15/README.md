@@ -1,12 +1,12 @@
 # EXPERIMENT DETAILS
 
-**EXP:** CONTINUOUS ASSESSMENT 15 (Project: Node-RED part of CAT14)
+**EXP:** CONTINUOUS ASSESSMENT 15 (Project)
 
 **DATE:** 12/11/2026
 
 **NAME OF EXP:** Node-RED Dashboard Comparing BME280 MQTT Data with OpenWeather (Chennai) and Deciding Plant Watering
 
-**HARDWARE SETUP / PLATFORM:** Node-RED + @flowfuse/node-red-dashboard 1.33 + MQTT broker (broker.emqx.io) + OpenWeather Current Weather API. The firmware that publishes the BME280 data is in [`../CAT14`](../CAT14/README.md).
+**HARDWARE SETUP / PLATFORM:** Node-RED + @flowfuse/node-red-dashboard 1.33 + MQTT broker (broker.emqx.io) + OpenWeather Current Weather API + Keil MDK + NUCLEO-F401RE (STM32F401RET6) + Bosch BME280 (I2C) + ESP8266 Wi-Fi module (USART1).
 
 ---
 
@@ -15,6 +15,7 @@
 | File | Purpose |
 |---|---|
 | `lab14-flows.json` | Export of Node-RED Flow 1 (OpenWeather) and Flow 2 (MQTT + dashboard), with the dashboard page, groups and MQTT broker config. Import it with Menu → Import. |
+| `Task14.ioc`, `.mxproject`, `Core/`, `Drivers/`, `MDK-ARM/` | STM32 firmware (copy of CAT14) that reads the BME280 and publishes it to `stm32/leela` over MQTT. Keil project: `MDK-ARM/Task14.uvprojx`, firmware: `MDK-ARM/Task14/Task14.hex`. Wiring: `circuit.png`, details in [`../CAT14`](../CAT14/README.md). |
 | `lab14-dashboard.cjs` | Installer script. It adds the Lab14 nodes to a running Node-RED that already has the original Flow 1 and Flow 2. Safe to run again. |
 
 ### 1. Flow Overview
@@ -26,6 +27,14 @@
   - chart points for temperature, humidity and pressure (BME280 at most one point per minute);
   - the plant watering decision.
 - **Dashboard** at `http://localhost:1880/dashboard/lab14`: table, watering box, and line charts for the last 1 hour and last 12 hours.
+
+Flow 1 (OpenWeather):
+
+![Node-RED Flow 1](flow1.png)
+
+Flow 2 (MQTT, combine function and dashboard widgets):
+
+![Node-RED Flow 2](flow2.png)
 
 ### 2. Plant Watering Logic
 
